@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1>Beauty Cosmetics</h1>
+        <p>Sua beleza está aqui!</p>
+    </header>
+
+    <main>
+        <button id="btn-carregar">Ver produtos do catálogo</button>
+        <div id="resultado" class="hidden"></div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service.js')
+                    .then(reg => console.log('Service Worker registrado!', reg.scope))
+                    .catch(err => console.error('Erro no SW:', err));
+            });
+        }
+    </script>
+</body>
+</html>

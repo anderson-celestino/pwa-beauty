@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #4a4a4a;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin: 30px 0;
+}
+
+header h1 {
+    color: #d11d73;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+button#btn-carregar {
+    background-color: #d11d73;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.titulo-categoria {
+    color: #d11d73;
+    font-size: 1.4rem;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.grade-categoria {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: none;
+    background: none;
+}
+
+.card img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.card-info h2 {
+    font-size: 1rem;
+    color: #d11d73;
+    margin-bottom: 5px;
+}
+
+.preco {
+    color: #d11d73;
+    font-weight: bold;
+}
+
+.btn-add {
+    display: none; /
+}
