@@ -63,4 +63,4 @@ document.getElementById('btn-carregar').addEventListener('click', () => {
             console.error('Falha ao buscar produtos: ', erro);
             divResultado.innerHTML = '<p style="color: red; text-align: center; width: 100%;">Erro ao buscar os dados. Verifique sua conexão.</p>';
         });
-})
+});
