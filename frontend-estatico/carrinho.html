@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Beauty Cosmetics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="carrinho.css">
+</head>
+<body>
+
+    <header>
+        <a class="logo" href="home.html">Beauty Cosmetics</a>
+        <nav>
+            <a href="home.html">Início</a>
+            <a href="produtos.html">Todos os produtos</a>
+            <a href="perfumes.html">Perfumes</a>
+            <a href="corpo-banho.html">Corpo e Banho</a>
+        </nav>
+        <div class="nav-icons">
+            <a href="cadastro-login.html">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </a>
+            <a href="carrinho.html">
+                <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="cart-container">
+        <section class="cart-main">
+            <h1 class="page-title">Carrinho</h1>
+            
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th colspan="3">Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 40px; text-align: center;">
+                            <button class="btn-remove">×</button>
+                        </td>
+                        <td style="width: 70px;">
+                            <div class="product-image-container">
+                                <img src="https://placehold.co/56x72/fff/e91e63?text=Esfoliante" alt="Esfoliante">
+                            </div>
+                        </td>
+                        <td>
+                            <span class="product-name">Esfoliante Corporal Tododia Amoruda</span>
+                        </td>
+                        <td>R$ 34,90</td>
+                        <td>
+                            <div class="quantity-picker">
+                                <button onclick="decrementQty()">-</button>
+                                <input type="text" id="qtyInput" value="1" readonly>
+                                <button onclick="incrementQty()">+</button>
+                            </div>
+                        </td>
+                        <td id="itemTotal" class="bold-pink-text">R$ 34,90</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <aside class="cart-summary">
+            <h2 class="summary-title">Total no carrinho</h2>
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="summaryTotal">R$ 34,90</span>
+            </div>
+            <div class="summary-row" style="border-bottom: none; margin-bottom: 25px;">
+                <span>Entrega</span>
+                <span style="font-size: 13px; text-align: right; font-weight: normal;">Frete grátis</span>
+            </div>
+            <button class="btn-checkout" onclick="window.location.href='from-entrega.html'">Fechar compra</button>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <a class="footer-logo" href="home.html">Beauty Cosmetics</a>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Sobre</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Equipe</a></li>
+                    <li><a href="#">História</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-col-title">Privacidade</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos e condições</a></li>
+                    <li><a href="#">Fale conosco</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Criado com <a href="https://wordpress.org" target="_blank" rel="noopener">WordPress</a>
+        </div>
+    </footer>
+
+    <script src="carrinho.js"></script>
+</body>
+</html>

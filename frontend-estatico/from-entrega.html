@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar compra - Beauty Cosmetics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-pink: #d81b60; 
+            --text-pink: #e91e63;    
+            --light-pink: #f48fb1;   
+            --btn-magenta: #ff007f;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --border-box: #767676;
+            --light-border: #dddddd;
+            --error-red: #cc0000;
+            --error-bg: #fff5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #ffffff;
+            color: var(--text-pink);
+            padding: 60px 8% 100px 8%;
+        }
+
+        
+        .checkout-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-pink);
+        }
+
+        .login-link {
+            font-size: 13px;
+            color: var(--text-pink);
+            text-decoration: underline;
+        }
+
+        .checkout-section {
+            margin-bottom: 35px;
+        }
+
+       
+        .form-group-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .input-box {
+            border: 1px solid var(--border-box);
+            border-radius: 4px;
+            padding: 6px 12px;
+            margin-bottom: 12px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .input-box label {
+            font-size: 11px;
+            color: var(--text-pink);
+            margin-bottom: 2px;
+            font-weight: 400;
+        }
+
+        .input-box input, .input-box select {
+            border: none;
+            outline: none;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            color: #333333;
+            width: 100%;
+            background: transparent;
+        }
+
+        .input-box select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e91e63'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0 center;
+            background-size: 18px;
+            padding-right: 20px;
+        }
+
+        .info-subtext {
+            font-size: 13px;
+            color: var(--text-pink);
+            margin-top: -4px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-pink);
+            margin-top: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input {
+            accent-color: var(--btn-magenta);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .add-info-link {
+            font-size: 13px;
+            color: var(--text-pink);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .add-info-link:hover {
+            text-decoration: underline;
+        }
+
+     
+        .delivery-method-box {
+            border: 1px solid var(--text-pink);
+            border-radius: 4px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .delivery-radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .delivery-radio-label input {
+            accent-color: var(--btn-magenta);
+            width: 16px;
+            height: 16px;
+        }
+
+        .delivery-price {
+            font-weight: 600;
+        }
+
+        
+        .alert-error-box {
+            border: 1px solid var(--error-red);
+            background-color: var(--error-bg);
+            border-radius: 4px;
+            padding: 15px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 15px;
+            color: #333333;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        .alert-error-box svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--error-red);
+            flex-shrink: 0;
+        }
+
+        .terms-text {
+            font-size: 13px;
+            color: var(--text-pink);
+            line-height: 1.5;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .checkout-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--light-border);
+            padding-top: 25px;
+        }
+
+        .back-link {
+            color: var(--text-pink);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .btn-finalize {
+            background-color: var(--btn-magenta);
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-finalize:hover {
+            background-color: #e60072;
+        }
+
+
+        .order-summary-box {
+            border: 1px solid var(--light-border);
+            border-radius: 6px;
+            padding: 30px;
+            background-color: #ffffff;
+        }
+
+        .summary-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--text-pink);
+        }
+
+       
+        .summary-product-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #fce4ec;
+            margin-bottom: 15px;
+        }
+
+        .product-meta {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .image-badge-wrapper {
+            position: relative;
+            width: 56px;
+            height: 64px;
+            flex-shrink: 0;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border: 1px solid #f2f2f2;
+            border-radius: 4px;
+        }
+
+        .quantity-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--text-pink);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 600;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .product-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-pink);
+        }
+
+        .product-desc {
+            font-size: 12px;
+            color: var(--text-pink);
+            opacity: 0.8;
+        }
+
+        .product-price {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333333;
+        }
+
+      
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 14px;
+            color: var(--text-pink);
+        }
+
+        .summary-line.coupon {
+            cursor: pointer;
+            border-bottom: 1px solid #fce4ec;
+            padding-bottom: 15px;
+        }
+
+        .coupon-toggle {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+        }
+
+        .coupon-toggle svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--text-pink);
+        }
+
+        .summary-line.total-line {
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .bold-pink-text {
+            font-weight: 700;
+        }
+
+        
+        @media (max-width: 992px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        
+        <div>
+            
+            <div class="checkout-section">
+                <div class="section-header">
+                    <h2 class="section-title">Informações de contato</h2>
+                    <a href="#" class="login-link">Acessar</a>
+                </div>
+                
+                <div class="input-box">
+                    <label for="email">Endereço de e-mail</label>
+                    <input type="email" id="email" value="">
+                </div>
+                <p class="info-subtext">Você está fazendo o check-out como convidado.</p>
+
+                <label class="checkbox-container">
+                    <input type="checkbox"> Crie uma conta com Beauty Cosmetics
+                </label>
+            </div>
+
+            <div class="checkout-section">
+                <h2 class="section-title" style="margin-bottom: 20px;">Endereço de entrega</h2>
+                
+                <div class="form-group-row">
+                    <div class="input-box">
+                        <label for="firstName">Nome</label>
+                        <input type="text" id="firstName">
+                    </div>
+                    <div class="input-box">
+                        <label for="lastName">Sobrenome</label>
+                        <input type="text" id="lastName">
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="country">País</label>
+                    <select id="country">
+                        <option>Brasil</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <label for="address">Endereço</label>
+                    <input type="text" id="address">
+                </div>
+
+                <a href="#" class="add-info-link">+ Adicionar apartamento, suíte, unidade, etc.</a>
+
+                <div class="form-group-row">
+                    <div class="input-box">
+                        <label for="city">Cidade</label>
+                        <input type="text" id="city">
+                    </div>
+                    <div class="input-box">
+                        <label for="state">Estado</label>
+                        <select id="state">
+                            <option>Ceará</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-row">
+                    <div class="input-box">
+                        <label for="zip">CEP</label>
+                        <input type="text" id="zip">
+                    </div>
+                    <div class="input-box">
+                        <label for="phone">Telefone (opcional)</label>
+                        <input type="text" id="phone">
+                    </div>
+                </div>
+
+                <label class="checkbox-container">
+                    <input type="checkbox" checked> Usar o mesmo endereço para cobrança
+                </label>
+            </div>
+
+            <div class="checkout-section">
+                <h2 class="section-title">Opções de entrega</h2>
+                <div class="delivery-method-box">
+                    <label class="delivery-radio-label">
+                        <input type="radio" name="delivery" checked>
+                        <span>Frete grátis</span>
+                    </label>
+                    <span class="delivery-price bold-pink-text">GRÁTIS</span>
+                </div>
+            </div>
+
+            <div class="checkout-section">
+                <h2 class="section-title">Opções de pagamento</h2>
+                
+                <div class="alert-error-box">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    <div>
+                        Não há métodos de pagamento disponíveis. Entre em contato conosco para obter ajuda na realização do seu pedido.
+                    </div>
+                </div>
+
+                <label class="checkbox-container" style="margin-top: 25px;">
+                    <input type="checkbox"> Adicione uma observação ao seu pedido
+                </label>
+            </div>
+
+            <p class="terms-text">
+                Ao prosseguir com sua compra você concorda com nosso Termos e condições e a Política de privacidade
+            </p>
+
+            <div class="checkout-actions">
+                <a href="#" class="back-link">← Retornar ao carrinho</a>
+                <button type="submit" class="btn-finalize">Finalizar pedido</button>
+            </div>
+
+        </div>
+
+        <aside class="order-summary-box">
+            <h2 class="summary-title">Resumo do pedido</h2>
+            
+            <div class="summary-product-row">
+                <div class="product-meta">
+                    <div class="image-badge-wrapper">
+                        <img src="https://placehold.co/56x64/fff/e91e63?text=Esfoliante" alt="Esfoliante" class="product-image">
+                        <div class="quantity-badge">1</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-name">Esfoliante Corporal Amoruda</span>
+                        <span class="product-desc">Remove células mortas e deixa a pele macia e renovada</span>
+                    </div>
+                </div>
+                <div class="product-price">R$ 34,90</div>
+            </div>
+
+            <div class="summary-line coupon">
+                <div class="coupon-toggle">
+                    <span>Adicionar cupons</span>
+                    <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                </div>
+            </div>
+
+            <div class="summary-line">
+                <span>Subtotal</span>
+                <span>R$ 34,90</span>
+            </div>
+
+            <div class="summary-line">
+                <span>Frete grátis</span>
+                <span class="bold-pink-text">GRÁTIS</span>
+            </div>
+
+            <div class="summary-line total-line" style="border-top: 1px solid #fce4ec; padding-top: 20px;">
+                <span>Total</span>
+                <span class="bold-pink-text" style="font-size: 16px;">R$ 34,90</span>
+            </div>
+
+        </aside>
+
+    </div>
+
+</body>
+</html>
+

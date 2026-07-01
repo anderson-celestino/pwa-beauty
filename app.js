@@ -3,7 +3,7 @@ document.getElementById('btn-carregar').addEventListener('click', () => {
     divResultado.classList.remove('hidden');
     divResultado.innerHTML = '<p style="text-align: center; width: 100%;">Buscando categorias e produtos...</p>';
 
-    const urlAPI = 'http://192.168.1.127/wp-json/wc/store/products';
+    const urlAPI = 'http://192.168.0.10/wp-json/wc/store/products';
 
     fetch(urlAPI)
         .then(resposta => {
